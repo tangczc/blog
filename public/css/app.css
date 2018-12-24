@@ -8413,14 +8413,9 @@ header .author .author-link1 a:hover {
           transition-duration: 0.4s;
 }
 
-header .author .others {
-  margin-top: -50px;
-  margin-left: 10px;
-}
-
 header .author .others .github {
-  height: 30px;
-  width: 30px;
+  height: 40px;
+  width: 40px;
 }
 
 header .author .others .email {
