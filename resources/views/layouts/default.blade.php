@@ -8,7 +8,7 @@
 <body>
     @include('layouts._header')
     <div class='container'>        
-        @yield('content')
+        @yield("content")
     </div>
 </body>
 </html>

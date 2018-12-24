@@ -14,3 +14,6 @@
 Route::get('/',function(){
     return view('layouts.default');
 });
+Route::get('edit',function(){
+    return view('edit.new');
+});

@@ -8424,3 +8424,22 @@ header .author .others .email {
   margin-left: 10px;
 }
 
+.mks {
+  margin-top: -680px;
+  width: 130%;
+}
+
+.mks .input-group {
+  margin-top: 10px;
+  width: 95%;
+  margin-left: 35px;
+}
+
+.mks .mk {
+  margin-top: 10px;
+}
+
+.mks .tj {
+  margin-left: 40px;
+}
+
