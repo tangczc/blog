@@ -1,7 +1,7 @@
 // Bootstrap
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
 body{
-    background-color: bisque;
+    background-color: #616A6B;
 }
 header{
     .motto{
@@ -19,7 +19,7 @@ header{
         }
     }
     .author{
-        margin: 10px 0px 0px 30px;
+        margin: 20px 0px 0px 30px;
         height: 700px;
         width: 300px;
         border-radius: 30px;
@@ -81,7 +81,7 @@ header{
     }
 }
 .mks{
-    margin-top: -680px;
+    margin-top: -705px;
     width: 130%;
     .input-group{
         margin-top: 10px;

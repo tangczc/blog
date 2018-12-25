@@ -1,4 +1,4 @@
-<header class = "header">
+<header class = "header"> 
     <div class='motto'>
         <p>我要用手中的键盘把世界写的明明白白</p>
     </div>
