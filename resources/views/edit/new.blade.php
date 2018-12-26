@@ -3,8 +3,8 @@
 
 @section('content')
 
-<form action = "#" method = "post">
-    {{ csrf_field() }}
+<form action = "{{ route('articles.store')}}" method = "post">
+{{ csrf_field()}}
     <div class = "mks">
         <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">标题</span>

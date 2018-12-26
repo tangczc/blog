@@ -8443,3 +8443,74 @@ header .author .others .email {
   margin-left: 40px;
 }
 
+.page {
+  position: fixed;
+  left: 500px;
+  top: 800px;
+}
+
+.article_info {
+  margin-top: -740px;
+  margin-left: 100px;
+}
+
+.article_info table {
+  border-collapse: collapse;
+}
+
+.article_info table tr {
+  display: block;
+  margin: 50px 0;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.article_info table tr td {
+  width: 900px;
+  height: 130px;
+  border-radius: 10px;
+}
+
+.article_info table tr td a {
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  color: black;
+}
+
+.article_info table tr td a span {
+  color: #928c8c;
+  margin-top: 25px;
+}
+
+.article_info table tr td a:hover {
+  background-color: #474444;
+  color: white;
+  text-decoration: none;
+  -webkit-transition-duration: 0.4s;
+          transition-duration: 0.4s;
+}
+
+.article_info table tr td a hr {
+  width: 90%;
+  margin-top: -8px;
+  margin-left: 0px;
+  background-color: #413e3e;
+}
+
+.article_info h1 {
+  margin-left: 10px;
+  margin-top: 5px;
+}
+
+.article_info p {
+  margin-left: 15px;
+  margin-top: -5px;
+}
+
+.article_info span {
+  margin-left: 20px;
+  margin-top: -10px;
+}
+

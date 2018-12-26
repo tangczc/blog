@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/',function(){
-    return view('layouts.default');
-});
+Route::get('/','ArticleController@index');
 Route::get('edit',function(){
     return view('edit.new');
 });
+Route::resource('articles','ArticleController');
