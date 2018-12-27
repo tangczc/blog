@@ -1,58 +1,128 @@
-<p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
+<h1>基于Laravel5的blog系统</h1>
+<hr/>
+<h3>项目部署</h3>
+<p>来自<a href="http://dmmylove.cn/articles/12">Laravel 部署到阿里云/腾讯云</a></p>
+<hr>
+<h4>更新列表</h4>
+<code>sudo apt-get update</code>
+<code>sudo apt-get upgrade</code>
+<h4>安装常用软件</h4>
+<code>sudo apt-get install -y vim git zip unzip</code>
+<h4>安装PHP7</h4>
+<code>
+    sudo apt-get install -y software-properties-common
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+    sudo LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php
 
-## About Laravel
+    sudo apt-get update
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
+    apt-cache search php7.1
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+    sudo apt-get install -y php7.1
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications.
+    sudo apt-get install -y php7.1-mysql
 
-## Learning Laravel
+    sudo apt-get install -y php7.1-fpm
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of any modern web application framework, making it a breeze to get started learning the framework.
+    sudo apt-get install -y php7.1-curl php7.1-xml php7.1-mcrypt php7.1-json php7.1-gd php7.1-mbstring
+</code>
+<h4>安装MySQL</h4>
+<code>sudo apt-get install -y mysql-server</code>
+<h4>安装 Nginx</h4>
+<code>sudo apt-get install -y nginx</code>
+<h4>配置PHP7</h4>
+<code>
+    sudo vim /etc/php/7.1/fpm/php.ini
+    //修改 cgi.fix_pathinfo=0
+    sudo vim /etc/php/7.1/fpm/pool.d/www.conf
+    //修改 listen = /var/run/php7.1-fpm.sock    
+</code>
+<h4>配置 Nginx</h4>
+<code>
+    sudo vim /etc/nginx/sites-available/default
+</code>
+<code>
+    //修改如下，根据自己的项目情况修改对应信息:'server_domain_or_IP' 替换为你的网站域名或IP地址
+server {
 
-If you're not in the mood to read, [Laracasts](https://laracasts.com) contains over 1100 video tutorials on a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
+    root /var/www/blog/public;
 
-## Laravel Sponsors
+    index index.php index.html index.htm;
+    
+    server_name server_domain_or_IP;
+    
+    location / {
+        try_files $uri $uri/ /index.php?$query_string;      
+    }
 
-We would like to extend our thanks to the following sponsors for helping fund on-going Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell):
+    location ~ \.php$ {
+        try_files $uri /index.php =404;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass unix:/var/run/php7.1-fpm.sock;
+        fastcgi_index index.php;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        include fastcgi_params;
+    }
+}
+</code>
+<h4>拉取代码</h4>
+<code>
+    cd /var/www
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Pulse Storm](http://www.pulsestorm.net/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
+    git clone 地址
+</code>
+<h4>安装 Composer 并使用 Composer 安装代码依赖</h4>
+<p> 访问 <a href="https://getcomposer.org/download/" >composer</a> 官网 获取下面四行代码最新版，直接粘贴执行安装 Composer</p>
+<code>
+    php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    php -r "if (hash_file('SHA384', 'composer-setup.php') === '669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+    php composer-setup.php
+    php -r "unlink('composer-setup.php');"
 
-## Contributing
+    //然后移动 composer.phar
+    mv composer.phar /usr/local/bin/composer
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    //进入项目目录
+    cd /var/www/blog
 
-## Security Vulnerabilities
+    //执行 composer install
+    composer install
+</code>
+<h4>创建 .env 文件</h4>
+<code>
+    cd /var/www/blog
+    cp .env.example .env
+<code>
+<h4>修改.env<h4>
+<code>
+    vim .env
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=blog
+    DB_USERNAME=homestead //你的数据库名
+    DB_PASSWORD=secret     //你的数据库密码
 
-## License
+</code>
+<h4>生成 laravel key</h4>
+<code>
+    cd /var/www/laravel-project
+    php artisan key:generate
+</code>
+<h4>数据迁移</h4>
+<code>
+    cd /var/www/blog
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    php artisan migrate
+</code>
+<h4>权限修改</h4>
+<code>
+    sudo chown -R www-data:www-data /var/www
+    sudo chmod -R 777 /var/www/laravel-project/storage
+<code>
+<h4>重启 Nginx 和 PHP7 fpm</h4>
+<code>
+    service nginx restart
+    service php7.1-fpm restart
+</code>
