@@ -28,7 +28,7 @@
 	</script>
 	<script type="text/javascript" src="{{asset('js/canvas-particle.js')}}"></script>
     @include('shared._header')
-    <div class='container'>        
+    <div class='container' style="margin-left:500px;">        
         @yield("content")
 	</div>
 	@include('shared._footer')
