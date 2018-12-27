@@ -8,11 +8,11 @@
     <div class = "mks">
         <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">标题</span>
-            <input type="text" class="form-control" name = "title" placeholder="标题" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" name = "title" placeholder="标题" aria-describedby="basic-addon1" required="required" >
         </div>
         <div class="input-group">
             <span class="input-group-addon" id="basic-addon1">类别</span>
-            <input type="text" class="form-control" name = "type" placeholder="类别" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" name = "type" placeholder="类别" aria-describedby="basic-addon1" required="required" >
         </div>
         <div id="test-editormd" class="mk">
             <textarea name="test-editormd" style="display:none;"></textarea>
