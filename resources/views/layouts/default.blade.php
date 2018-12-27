@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8" />
     <title>@yield('title','Li Chen - Li Chen\'s Blog')</title>
     <link rel="icon" href="{{asset('storage/images/title-icon.png')}}" type="image/x-icon"/>
     <link rel="stylesheet" href="/css/app.css">
