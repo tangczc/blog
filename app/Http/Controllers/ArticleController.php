@@ -56,9 +56,10 @@ class ArticleController extends Controller
         foreach($article as $a){
             $title = $a -> title;
             $text = $a -> test_editormd;
+            $time = $a -> created_at;
         }
 
-        return view('layouts.show',compact('title','text'));
+        return view('layouts.show',compact('title','text','time'));
     }
 
     /**

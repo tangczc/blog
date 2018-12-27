@@ -18,7 +18,8 @@ class CreateArticlesTable extends Migration
             $table->string('title');
             $table->string('type');
             $table->string('test_editormd');
-            $table->timestamps();
+            $table->timestamp('created_at')->useCurrent();
+		    $table->timestamp('updated_at')->useCurrent();
         });
     }
 
