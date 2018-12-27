@@ -32,17 +32,17 @@
 <code>sudo apt-get install -y nginx</code>
 <h4>配置PHP7</h4>
 <code>
-    sudo vim /etc/php/7.1/fpm/php.ini
-    //修改 cgi.fix_pathinfo=0
-    sudo vim /etc/php/7.1/fpm/pool.d/www.conf
-    //修改 listen = /var/run/php7.1-fpm.sock    
+    sudo vim /etc/php/7.1/fpm/php.ini<br>
+    //修改 cgi.fix_pathinfo=0<br>
+    sudo vim /etc/php/7.1/fpm/pool.d/www.conf<br>
+    //修改 listen = /var/run/php7.1-fpm.sock   <br> 
 </code>
 <h4>配置 Nginx</h4>
 <code>
     sudo vim /etc/nginx/sites-available/default
 </code>
 <code>
-    //修改如下，根据自己的项目情况修改对应信息:'server_domain_or_IP' 替换为你的网站域名或IP地址
+    //修改如下，根据自己的项目情况修改对应信息:'server_domain_or_IP' 替换为你的网站域名或IP地址<br>
 server {
 
     root /var/www/blog/public;
@@ -85,17 +85,17 @@ server {
     //进入项目目录
     cd /var/www/blog
 
-    //执行 composer install
+    //执行 composer install<br>
     composer install
 </code>
 <h4>创建 .env 文件</h4>
 <code>
-    cd /var/www/blog
+    cd /var/www/blog<br>
     cp .env.example .env
 <code>
 <h4>修改.env<h4>
 <code>
-    vim .env
+    vim .env<br>
 
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
@@ -107,22 +107,22 @@ server {
 </code>
 <h4>生成 laravel key</h4>
 <code>
-    cd /var/www/laravel-project
+    cd /var/www/laravel-project<br>
     php artisan key:generate
 </code>
 <h4>数据迁移</h4>
 <code>
-    cd /var/www/blog
+    cd /var/www/blog<br>
 
     php artisan migrate
 </code>
 <h4>权限修改</h4>
 <code>
-    sudo chown -R www-data:www-data /var/www
+    sudo chown -R www-data:www-data /var/www<br>
     sudo chmod -R 777 /var/www/laravel-project/storage
 <code>
 <h4>重启 Nginx 和 PHP7 fpm</h4>
 <code>
-    service nginx restart
+    service nginx restart<br>
     service php7.1-fpm restart
 </code>
