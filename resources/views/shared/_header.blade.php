@@ -8,13 +8,13 @@
        </a><br/><br/>
        <a href="#" class="author-name">李晨</a>
        <div class='author-link'>
-        <a href="">首页</a>
-        <a href="">Java</a>
-        <a href="">Liunx</a>        
+        <a href="/">首页</a>
+        <a href="{{route('articles.find','Java')}}">Java</a>
+        <a href="{{route('articles.find','Liunx')}}">Liunx</a>        
        </div> 
        <div class='author-link1'>
-        <a href="">PHP</a>
-        <a href="">其他</a>
+        <a href="{{route('articles.find','PHP')}}">PHP</a>
+        <a href="{{route('articles.find','Python')}}">Python</a>
        </div>
        <div class="others">
          <a href="https://github.com/tangczc" >

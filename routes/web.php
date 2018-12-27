@@ -15,4 +15,6 @@ Route::get('/','ArticleController@index');
 Route::get('edit',function(){
     return view('edit.new');
 });
+Route::get('find/{type}','ArticleController@find') -> name('articles.find');
+
 Route::resource('articles','ArticleController');

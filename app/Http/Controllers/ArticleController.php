@@ -9,7 +9,7 @@ class ArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     *  首页
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -19,18 +19,8 @@ class ArticleController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
      * Store a newly created resource in storage.
-     *
+     *添加blog
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -46,7 +36,7 @@ class ArticleController extends Controller
 
     /**
      * Display the specified resource.
-     *
+     * 展示blog
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
@@ -61,38 +51,14 @@ class ArticleController extends Controller
 
         return view('layouts.show',compact('title','text','time'));
     }
-
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
+     * 显示查询blog的结果
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function find($type){
+        $articles = DB::table('article') -> where('type',$type)->paginate(4);
+        
+        return view('layouts.find',['articles'=>$articles]);
     }
 }
