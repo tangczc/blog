@@ -10,6 +10,7 @@
 <code>sudo apt-get install -y vim git zip unzip</code>
 <h4>安装PHP7</h4>
 <code>
+
     sudo apt-get install -y software-properties-common
 
     sudo LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php
@@ -32,10 +33,14 @@
 <code>sudo apt-get install -y nginx</code>
 <h4>配置PHP7</h4>
 <code>
-    sudo vim /etc/php/7.1/fpm/php.ini<br>
-    //修改 cgi.fix_pathinfo=0<br>
-    sudo vim /etc/php/7.1/fpm/pool.d/www.conf<br>
-    //修改 listen = /var/run/php7.1-fpm.sock   <br> 
+    sudo vim /etc/php/7.1/fpm/php.ini
+
+    //修改 cgi.fix_pathinfo=0
+
+    sudo vim /etc/php/7.1/fpm/pool.d/www.conf
+
+    //修改 listen = /var/run/php7.1-fpm.sock
+    
 </code>
 <h4>配置 Nginx</h4>
 <code>
@@ -79,7 +84,7 @@ server {
     php -r "if (hash_file('SHA384', 'composer-setup.php') === '669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
 
     php composer-setup.php
-    
+
     php -r "unlink('composer-setup.php');"
 
     //然后移动 composer.phar
