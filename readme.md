@@ -75,27 +75,35 @@ server {
 <p> 访问 <a href="https://getcomposer.org/download/" >composer</a> 官网 获取下面四行代码最新版，直接粘贴执行安装 Composer</p>
 <code>
     php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+
     php -r "if (hash_file('SHA384', 'composer-setup.php') === '669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+
     php composer-setup.php
+    
     php -r "unlink('composer-setup.php');"
 
     //然后移动 composer.phar
+
     mv composer.phar /usr/local/bin/composer
 
     //进入项目目录
+
     cd /var/www/blog
 
-    //执行 composer install<br>
+    //执行 composer install
+    
     composer install
 </code>
 <h4>创建 .env 文件</h4>
 <code>
-    cd /var/www/blog<br>
+    cd /var/www/blog
+    
     cp .env.example .env
 <code>
 <h4>修改.env<h4>
 <code>
-    vim .env<br>
+    vim .env
+    
 
     DB_CONNECTION=mysql
     DB_HOST=127.0.0.1
@@ -107,22 +115,25 @@ server {
 </code>
 <h4>生成 laravel key</h4>
 <code>
-    cd /var/www/laravel-project<br>
+    cd /var/www/laravel-project
+
     php artisan key:generate
 </code>
 <h4>数据迁移</h4>
 <code>
-    cd /var/www/blog<br>
+    cd /var/www/blog
 
     php artisan migrate
 </code>
 <h4>权限修改</h4>
 <code>
-    sudo chown -R www-data:www-data /var/www<br>
+    sudo chown -R www-data:www-data /var/www
+    
     sudo chmod -R 777 /var/www/laravel-project/storage
-<code>
+</code>
 <h4>重启 Nginx 和 PHP7 fpm</h4>
 <code>
-    service nginx restart<br>
+    service nginx restart
+    
     service php7.1-fpm restart
 </code>
