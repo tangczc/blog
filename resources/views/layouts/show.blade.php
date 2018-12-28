@@ -38,7 +38,7 @@
     <div class="article_title">
         <h1>{{$title}}</h1>      
         <img src="https://img.icons8.com/color/48/000000/calendar.png"><div class="time">{{$time}}</div>
-        <a class="btn btn-success back" href="/" role="button">返回</a>
+        <a class="btn btn-success back" onclick="history.back(-1)" role="button">返回</a>
         <hr/>
         
     </div>
