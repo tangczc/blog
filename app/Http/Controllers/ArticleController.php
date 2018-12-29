@@ -14,7 +14,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = DB::table('article')->paginate(4);
+        $articles = DB::table('article')->orderBy('updated_at','desc')->paginate(4);
         return view('layouts.index',['articles' => $articles]);
     }
 
@@ -57,7 +57,7 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function find($type){
-        $articles = DB::table('article') -> where('type',$type)->paginate(4);
+        $articles = DB::table('article') -> where('type',$type)->orderBy('updated_at','desc')->paginate(4);
         
         return view('layouts.find',['articles'=>$articles]);
     }
