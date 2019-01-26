@@ -66,8 +66,4 @@ class ArticleController extends Controller
         return view('layouts.find',['articles'=>$articles]);
     }
 
-    public function upload(){
-        $data = EndaEditor::uploadImgFile('path');
-        return json_encode($data);
-    }
 }
