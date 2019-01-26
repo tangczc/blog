@@ -42,7 +42,11 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
+        
         $article = DB::select("select * from article where id = ?",[$id]);
+        if($article == null){
+            return view('errors.404');
+        }
         foreach($article as $a){
             $title = $a -> title;
             $text = $a -> test_editormd;
