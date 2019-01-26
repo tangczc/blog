@@ -9,7 +9,7 @@ class ArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *  首页
+     * 首页
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -20,7 +20,7 @@ class ArticleController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     *添加blog
+     * 添加blog
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
@@ -64,5 +64,10 @@ class ArticleController extends Controller
         $articles = DB::table('article') -> where('type',$type)->orderBy('updated_at','desc')->paginate(4);
         
         return view('layouts.find',['articles'=>$articles]);
+    }
+
+    public function upload(){
+        $data = EndaEditor::uploadImgFile('path');
+        return json_encode($data);
     }
 }
