@@ -18,3 +18,7 @@ Route::get('edit',function(){
 Route::get('find/{type}','ArticleController@find') -> name('articles.find');
 
 Route::resource('articles','ArticleController');
+
+Route::get('curriculum_vitea',function(){
+	return view('shared.curriculum_vitea');
+}) -> name('curriculum_vitea');
