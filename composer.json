@@ -6,10 +6,12 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "chenhua/laravel5-markdown-editor": "~1.0",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "chenhua/laravel5-markdown-editor": "~1.0"
+        "laravelcollective/html": "^5.2.0",
+        "yuanchao/laravel-5-markdown-editor": "dev-master"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

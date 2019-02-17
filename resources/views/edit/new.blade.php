@@ -3,6 +3,7 @@
 
 @section('content')
 
+@include('editor::head')
 <form action = "{{ route('articles.store')}}" method = "post">
 {{ csrf_field()}}
     <div class = "mks">
@@ -14,11 +15,9 @@
             <span class="input-group-addon" id="basic-addon1">类别</span>
             <input type="text" class="form-control" name = "type" placeholder="类别" aria-describedby="basic-addon1" required="required" >
         </div>
-        <div id="test-editormd" class="mk">
-            <textarea name="test-editormd" style="display:none;"></textarea>
+        <div class="editor mk">
+            <textarea id='myEditor' name = "test-editormd"></textarea>
         </div>
-
-        @include('markdown::encode',['editors'=>['test-editormd']])
         <div class="btn-group tj" role="group">
             <button type="submit" class="btn btn-success">创建</button>
         </div>

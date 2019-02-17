@@ -1,6 +1,8 @@
 /node_modules
 /public/hot
 /public/storage
+/public/uploads/*
+/resources/views/edit/create.blade.php
 /storage/*.key
 /vendor
 /.idea

@@ -164,6 +164,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Chenhua\MarkdownEditor\MarkdownEditorServiceProvider::class,
+        YuanChao\Editor\EndaEditorServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -227,6 +229,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'MarkdownEditor' => Chenhua\MarkdownEditor\Facades\MarkdownEditor::class,
+        'EndaEditor' => YuanChao\Editor\Facade\EndaEditorFacade::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 

@@ -22,3 +22,9 @@ Route::resource('articles','ArticleController');
 Route::get('curriculum_vitea',function(){
 	return view('shared.curriculum_vitea');
 }) -> name('curriculum_vitea');
+
+Route::get('edit/create',function(){
+    return view('edit.create');
+});
+
+Route::post('article/upload','ArticleController@upload');

@@ -43,9 +43,10 @@
         
     </div>
     <div class="article_body">
+	@include('editor::decode')
         <div>
             @php
-                echo MarkdownEditor::parse($text)
+                echo EndaEditor::MarkDecode($text)
             @endphp
 		</div>
 		

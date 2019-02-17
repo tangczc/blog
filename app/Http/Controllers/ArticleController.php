@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use EndaEditor;
 
 class ArticleController extends Controller
 {
@@ -53,7 +54,7 @@ class ArticleController extends Controller
             $time = $a -> created_at;
         }
 
-        return view('layouts.show',compact('title','text','time'));
+        return view('layouts.show',['title' => $title,'time' => $time,'text'=>EndaEditor::MarkDecode($text)]);
     }
     /**
      * 显示查询blog的结果
@@ -61,9 +62,16 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function find($type){
-        $articles = DB::table('article') -> where('type',$type)->orderBy('updated_at','desc')->paginate(4);
+        $articles = DB::table('article') -> where('type','like','%'.$type.'%')->orderBy('updated_at','desc')->paginate(4);
         
         return view('layouts.find',['articles'=>$articles]);
+    }
+
+
+    public function upload(){
+        
+        $data = EndaEditor::uploadImgFile('uploads');
+        return json_encode($data); 
     }
 
 }
